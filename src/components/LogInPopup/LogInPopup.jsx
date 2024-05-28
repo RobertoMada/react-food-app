@@ -1,9 +1,17 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./LogInPopup.css";
 import { assets } from "../../assets/assets";
 
 const LogInPopup = ({ setShowLogin }) => {
   const [currState, setCurrState] = useState("Sign up");
+
+  useEffect(() => {
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, []);
+
   return (
     <div className="login-popup">
       <form className="login-popup-container">
