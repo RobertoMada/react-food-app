@@ -7,11 +7,16 @@ import { StoreContext } from "../../context/StoreContext";
 const Navbar = ({ setShowLogin }) => {
   const [menu, setMenu] = useState("home");
   const { getTotalCartAmount, getTotalQuantity } = useContext(StoreContext);
+
+  const pageUp = () => {
+    window.scrollTo({ top: (0, 0), behavior: "smooth" });
+  };
+
   return (
     <div className="navbar">
-      <Link to="/">
-        <img src={assets.logo} alt="Tomato logo" className="logo" />
-      </Link>
+      <button onClick={pageUp} className="logo">
+        <img src={assets.logo} alt="Tomato logo" />
+      </button>
 
       <ul className="navbar-menu">
         <Link
